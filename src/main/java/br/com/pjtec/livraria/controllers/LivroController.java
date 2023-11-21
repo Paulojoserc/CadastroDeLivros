@@ -25,8 +25,15 @@ public class LivroController {
 	@PostMapping("InsertLivros")
 	public ModelAndView inserirLivro(Livro livro) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:/Livro/listLivro");
+		mv.setViewName("redirect:/livros-adicionados");
 		livroRepositore.save(livro);
+		return mv;
+	}
+	@GetMapping("livros-adicionados")
+	public ModelAndView listagemLivros() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("Livro/listLivros");
+		mv.addObject("listLivros", livroRepositore.findAll());
 		return mv;
 	}
 }

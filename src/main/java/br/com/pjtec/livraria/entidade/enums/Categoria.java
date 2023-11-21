@@ -21,6 +21,6 @@ public enum Categoria {
 	private String categoria;
 	private Categoria(Integer codigo, String categoria) { this.codigo = codigo;
 	this.categoria = categoria; } public Integer getCodigo() { return codigo; }
-	public String getDescricao() { return categoria; }
+	public String getCategoria() { return categoria; }
 	
 }
