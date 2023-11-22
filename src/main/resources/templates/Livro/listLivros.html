@@ -43,15 +43,20 @@
 			</thead>
 			<tbody>
 				<tr scope="row" th:each="livros : ${listLivros}">
-					
+
 					<td th:text="${livros.nome}"></td>
 					<td th:text="${livros.autor}"></td>
 					<td th:text="${livros.quantidade}"></td>
 					<td th:text="${livros.preco}"></td>
 					<td th:text="${livros.categoria}"></td>
-					
-					
-					
+
+
+					<td>
+						<a class="btn btn-primary" th:href="@{alterar/{id}(id=${livros.id})}">
+							<i class="fas fa-edit"></i> Editar</a>
+						<a class="btn btn-primary" th:href="@{excluir/{id}(id=${livros.id})}">
+							<i class="fas fa-times"></i> Excluir</a>
+					</td>
 				</tr>
 			</tbody>
 		</table>
