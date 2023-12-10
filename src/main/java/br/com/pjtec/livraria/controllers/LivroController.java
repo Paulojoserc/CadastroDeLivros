@@ -1,7 +1,10 @@
 package br.com.pjtec.livraria.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,10 +27,15 @@ public class LivroController {
 	}
 
 	@PostMapping("InsertLivros")
-	public ModelAndView inserirLivro(Livro livro) {
+	public ModelAndView inserirLivro(@Valid Livro livro, BindingResult br) {
 		ModelAndView mv = new ModelAndView();
+		if(br.hasErrors()) {
+			mv.setViewName("Livro/formLivro");
+			mv.addObject("livro");
+		}else {
 		mv.setViewName("redirect:/livros-adicionados");
 		livroRepositore.save(livro);
+		}
 		return mv;
 	}
 	@GetMapping("livros-adicionados")

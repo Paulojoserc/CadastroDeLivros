@@ -34,7 +34,11 @@
 		<br>
 		<form method="POST" action="/InsertLivros" th:object="${livro}">
 			<div class="row">
+
 				<div class="col-md-5 form-group offset-md-3">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nome')}">
+						<label class="validation-messege" th:errors="*{nome}"></label>
+					</div>
 					<label>Nome do Livro</label>
 					<input class="form-control" placeholder="Ex:Código limpo" th:field="*{nome}">
 				</div>
@@ -42,6 +46,9 @@
 
 			<div class="row">
 				<div class="col-md-5 form-group offset-md-3">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('autor')}">
+						<label class="validation-messege" th:errors="*{autor}"></label>
+					</div>
 					<label>Nome do Autor</label>
 					<input class="form-control" placeholder="Ex:Robert C. Martin" th:field="*{autor}">
 				</div>
@@ -49,6 +56,9 @@
 
 			<div class="row">
 				<div class="col-md-5 form-group offset-md-3">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('quantidade')}">
+						<label class="validation-messege" th:errors="*{quantidade}"></label>
+					</div>
 					<label>Quantidade de livros</label>
 					<input class="form-control" placeholder="Ex:0" th:field="*{quantidade}">
 				</div>
@@ -63,6 +73,9 @@
 			<!--Categoria-->
 			<div class="row">
 				<div class="col-md-5 form-group offset-md-3">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('categoria')}">
+						<label class="validation-messege" th:errors="*{categoria}"></label>
+					</div>
 					<label>Selecione a categoria:</label>
 					<select class="form-control" th:field="*{categoria}">
 						<option th:each="categoria: ${T(br.com.pjtec.livraria.entidade.enums.Categoria).values()}"

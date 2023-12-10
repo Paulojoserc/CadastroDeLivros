@@ -7,6 +7,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import br.com.pjtec.livraria.entidade.enums.Categoria;
 
@@ -17,17 +20,22 @@ public class Livro {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(name = "nome")
+	@Size(min = 5, max = 35, message = "É Obrigatorio nome e sobrenome")
+	@NotBlank(message = "É Obrigatorio preencher o campo")
 	private String nome;
 	@Column(name = "autor")
+	@Size(min = 5, message = "É Obrigatorio o nome do Autor")
+	@NotBlank(message = "É Obrigatorio preencher o campo")
 	private String autor;
 	@Column(name = "quantidade")
+	@NotNull(message = "É Obrigatorio preencher o campo")
 	private Integer quantidade;
 	@Column(name = "preco")
 	private Double preco;
 	@Column(name = "categoria")
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	private Categoria categoria;
-
 
 	public Long getId() {
 		return id;
@@ -76,7 +84,5 @@ public class Livro {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-
-
 
 }
