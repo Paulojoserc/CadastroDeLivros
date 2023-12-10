@@ -40,6 +40,7 @@
 				<th scope="col">Quantidade</th>
 				<th scope="col">Preço</th>
 				<th scope="col">Categoria</th>
+				<th scope="col">Ação</th>
 			</thead>
 			<tbody>
 				<tr scope="row" th:each="livros : ${listLivros}">
@@ -54,7 +55,7 @@
 					<td>
 						<a class="btn btn-primary" th:href="@{alterar/{id}(id=${livros.id})}">
 							<i class="fas fa-edit"></i> Editar</a>
-						<a class="btn btn-primary" th:href="@{excluir/{id}(id=${livros.id})}">
+						<a class="btn btn-danger" th:href="@{excluir/{id}(id=${livros.id})}">
 							<i class="fas fa-times"></i> Excluir</a>
 					</td>
 				</tr>

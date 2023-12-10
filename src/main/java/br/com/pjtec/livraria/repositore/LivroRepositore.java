@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.pjtec.livraria.entidade.Livro;
 
-public interface LivroRepositore extends JpaRepository<Livro, Integer> {
+public interface LivroRepositore extends JpaRepository<Livro, Long> {
 
 }

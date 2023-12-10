@@ -39,7 +39,7 @@ public class LivroController {
 	}
 	
 	@GetMapping("/alterar/{id}")
-	public ModelAndView alterar(@PathVariable("id") Integer id) {
+	public ModelAndView alterar(@PathVariable("id") Long id) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("Livro/alterar");
 		Livro livro = livroRepositore.findById(id).orElseThrow();
@@ -52,5 +52,11 @@ public class LivroController {
 		livroRepositore.save(livro);
 		mv.setViewName("redirect:/livros-adicionados");
 		return mv;
+	}
+	
+	@GetMapping("/excluir/{id}")
+	public String excluirLivro(@PathVariable("id")Long id) {
+		livroRepositore.deleteById(id);
+		return"redirect:/livros-adicionados";
 	}
 }

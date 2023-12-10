@@ -15,7 +15,7 @@ public class Livro {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 	@Column(name = "nome")
 	private String nome;
 	@Column(name = "autor")
@@ -29,11 +29,11 @@ public class Livro {
 	private Categoria categoria;
 
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
