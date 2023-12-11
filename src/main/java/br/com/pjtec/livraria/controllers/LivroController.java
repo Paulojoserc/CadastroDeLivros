@@ -67,4 +67,11 @@ public class LivroController {
 		livroRepositore.deleteById(id);
 		return"redirect:/livros-adicionados";
 	}
+	
+	@GetMapping("filtro-livros")
+	public ModelAndView filtroLivros() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("Livro/filtroLivros");
+		return mv;
+	}
 }
